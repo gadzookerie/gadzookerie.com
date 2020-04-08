@@ -1,0 +1,167 @@
+/* global */
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.grid-2{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #101214;
+    color: #7A7C80;
+
+}
+
+h2,.white{
+    color: #fff;
+}
+
+a{
+    color: #7A7C80;
+    text-decoration: none;
+}
+/* section 1 */
+.section-1{
+    padding-top: 40vh;
+    padding-left: 20vw;
+    text-align: center;
+}
+
+.section-1 p{
+    font-size: 1.1rem;
+    padding-bottom: 10px;
+    margin:0;
+}
+
+.section-1 h2{
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+}
+
+.section-1 a{
+    font-size: 1.5rem;
+    padding: 10px;
+}
+/* section 2 */
+.section-2{
+    padding-top: 20vh;
+    width: 70%;
+}
+
+.section-2 h2{
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+}
+
+.section-2 p{
+    font-size: 1.1rem;
+    padding-bottom: 10px;
+    margin:0;
+}
+
+.section-2 a{
+    display: block;
+    padding: 5px;
+    font-size: 1.2rem;
+    padding-left: 0;
+    width: 100px;
+}
+/* animations / utilities */
+.section-2 a:hover{
+    font-size: 1.3rem;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.section-1 a:hover{
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.glitch{
+    color: #fff;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 40px;
+    text-align: center;
+    letter-spacing: 10px;
+    z-index=1;
+}
+
+.glitch-s{
+    color: #fff;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 40px;
+    text-align: center;
+    letter-spacing: 10px;
+    z-index=2;
+}
+
+.glitch::before, .glitch::after{
+    content: attr(data-text);
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch-s::before, .glitch-s::after{
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before{
+    color: #FF00FF;
+    position: absolute;
+    animation: glitch-effect 5s infinite;
+}
+
+.glitch-s::before{
+    color: #00FFFF;
+    position: absolute;
+    animation: glitch-effect-s 5s infinite;
+}
+
+@keyframes glitch-effect{
+    0% {left:-1px;top:1px;}
+    85% {left:0px;top:0px;}
+    90% {left:-4px;top:0px;}
+    95% {left:4px;top:-1px;}
+    100% {left:-1px;top:1px;}
+}
+
+@keyframes glitch-effect-s{
+    0% {left:1px;top:-1px;}
+    85% {left:0px;top:0px;}
+    90% {left:0px;top:4px;blur(5px);}
+    95% {left:-4px;top:1px;}
+    100% {left:1px;top:-1px;}
+}
+
+
+/* media queries */
+@media(max-width:780px){
+    .grid-2{
+        grid-template-columns: 1fr;
+    }
+    .section-1{
+        padding:0;
+        padding-top: 5rem;
+    }
+    .section-2{
+        padding: 0;
+        padding-left: 1.5rem;
+        padding-top: 2rem;
+    }
+}
